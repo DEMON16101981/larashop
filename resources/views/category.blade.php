@@ -13,7 +13,7 @@
 						<ul class="breadcrumb-tree">
 							<li><a href="#">Главная</a></li>
 							<li><a href="{{ route('categories')}}">Категории</a></li>
-							<li><a href="#"></a></li>
+							<li><a href="#">{{ $category->name}}</a></li>
 							{{-- <li class="active">Headphones (227,490 Results)</li> --}}
 						</ul>
 					</div>
@@ -73,7 +73,9 @@
 						<!-- store products -->
 						<div class="row">
 							<!-- product -->
-							@include('card')
+							@foreach ($category->products as $product)
+								 @include('card', compact('product'))
+							@endforeach
 					
 							<!-- /product -->
 

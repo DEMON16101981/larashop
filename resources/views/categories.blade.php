@@ -81,7 +81,11 @@
 									</div>
 									<div class="product-body">
 								
-										<h3 class="product-name"><a href="/{{ $category->code}}">{{ $category->name}}</a></h3>
+										<h3 class="product-name">
+											<a href="{{$category->code}}">{{ $category->name}}	
+													({{$category->products->count()}})
+											</a>
+									</h3>
 									</div>
 									
 								</div>

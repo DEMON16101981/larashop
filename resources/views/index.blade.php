@@ -77,8 +77,9 @@
 						<!-- store products -->
 						<div class="row">
 							<!-- product -->
-							
-							@include('card')
+							@foreach ($products as $product)
+								 @include('card', compact('product'))
+							@endforeach
 						
 							<!-- /product -->
 							<div class="clearfix visible-sm visible-xs"></div>

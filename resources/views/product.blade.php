@@ -10,8 +10,8 @@
 					<div class="col-md-12">
 						<ul class="breadcrumb-tree">
 							<li><a href="#">Главная</a></li>
-							<li><a href="#">Категории</a></li>
-							<li><a href="#">Аксессуары</a></li>
+							<li><a href="{{ route('categories')}}">Категории</a></li>
+							<li><a href="">Аксессуары</a></li>
 							<li><a href="#">Наушники</a></li>
 							<li class="active">Lenovo</li>
 						</ul>
@@ -126,8 +126,8 @@
 							</ul>
 
 							<ul class="product-links">
-								<li>Category:</li>
-								<li><a href="#">Headphones</a></li>
+								<li>Категории:</li>
+								<li><a href=""></a></li>
 								<li><a href="#">Accessories</a></li>
 							</ul>
 

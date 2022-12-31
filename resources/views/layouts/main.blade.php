@@ -89,56 +89,41 @@
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
-								<!-- Wishlist -->
-								<div>
-									<a href="#">
-										<i class="fa fa-heart-o"></i>
-										<span>Your Wishlist</span>
-										<div class="qty">2</div>
-									</a>
-								</div>
-								<!-- /Wishlist -->
+								
 
 								<!-- Cart -->
 								<div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-										<a href="{{ route('basket')}}"><i class="fa fa-shopping-cart"></i>
+										<i class="fa fa-shopping-cart"></i>
 										<span>Корзина</span>
-										<div class="qty">3</div></a>
+										 <div class="qty">{{ $order->products->count()}}</div> 
 									</a>
-									 <div class="cart-dropdown"> 
-										<div class="cart-list">
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="{{ asset('assets/img/product01.png')}}" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
+									    <div class="cart-dropdown">
+											
+												 <div class="cart-list">
+													@foreach ($order->products as $product)
+													<div class="product-widget">
+														<div class="product-img">
+															<img src="{{ asset('assets/img/product01.png')}}" alt="">
+														</div>
+														<div class="product-body">
+															<h3 class="product-name"><a href="#">{{ $product->name}}</a></h3>
+															<h4 class="product-price"><span class="qty">1x</span>{{ $product->price}} грн.</h4>
+														</div>
+														<button class="delete"><i class="fa fa-close"></i></button>
+													</div>
+												
+											@endforeach
 											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="{{ asset('assets/img/product02.png')}}" alt="">
+												<div class="cart-summary">
+													<small>3 Item(s) selected</small>
+													<h5>SUBTOTAL: $2940.00</h5>
 												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+												<div class="cart-btns">
+													<a href="{{ route('index')}}">Вернуться к покупкам</a>
+													<a href="{{ route('order')}}">Перейти к оформлению  <i class="fa fa-arrow-circle-right"></i></a>
 												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
 										</div>
-										<div class="cart-summary">
-											<small>3 Item(s) selected</small>
-											<h5>SUBTOTAL: $2940.00</h5>
-										</div>
-										<div class="cart-btns">
-											<a href="#">View Cart</a>
-											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
-									</div>
 								</div>
 								<!-- /Cart -->
 
@@ -184,6 +169,8 @@
 		</nav>
 		<!-- /NAVIGATION -->
 
+		@yield('checkout')
+
       @yield('content')
 
       		<!-- NEWSLETTER -->
@@ -194,11 +181,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-							</form>
+							
 							<ul class="newsletter-follow">
 								<li>
 									<a href="#"><i class="fa fa-facebook"></i></a>
